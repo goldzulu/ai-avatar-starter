@@ -8,7 +8,7 @@ const generateAction = async (req, res) => {
 
     // Get input from the body of the request
     // Append the model name and some initial prompt
-    const finalInput = 'uyasophia, woman, beautiful, realistic, high detailed, uhd, photo, 8k, studio lighting, ' + JSON.parse(req.body).input;
+    const input = JSON.parse(req.body).input;
 
     // Add fetch request to Hugging Face
     const response = await fetch('https://api-inference.huggingface.co/models/goldzulu/uyasophia', 
@@ -19,7 +19,7 @@ const generateAction = async (req, res) => {
         },
         method: 'POST',
         body: JSON.stringify({
-            inputs: finalInput,
+            inputs: input,
         }),
     });
 

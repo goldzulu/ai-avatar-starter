@@ -49,13 +49,15 @@ const Home = () => {
       setRetry(0);
     }
 
+    const finalInput = 'uyasophia, woman, beautiful, realistic, high detailed, uhd, photo, 8k, studio lighting, ' + input;
+
     // Add the fetch request
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'image/jpeg'
       },
-      body: JSON.stringify({ input })
+      body: JSON.stringify({ input: finalInput })
     });
     const data = await response.json();
 
@@ -123,12 +125,12 @@ const Home = () => {
           <div className="header-subtitle">
             <h2>Writing about me and want to have a photo of me for your articles, blurb or speaker synopsis?</h2>
             <p>Write down the kind of photo you want me to pose and my AI Personal Assistant will generate one for you!</p>
-            <p>The AI Assistant might be cheeky and send you some funny silly photos. If that happens just rewrite your request and try again :)</p>
+            <p>The AI Assistant might be cheeky and send you some funny silly photos. If that happens just rewrite your request and try again</p>
             <p>Sometimes my assistant will take short naps and might take a bit longer initially</p>
           </div>
           {/* Add prompt container here */}
           <div className="prompt-container">
-            <input className="prompt-box" value={input} onChange={onChange} placeholder='e.g. smiling wearing sunglasses' />
+            <input className="prompt-box" value={input} onChange={onChange} placeholder="e.g. smiling wearing sunglasses" />
             <div className="prompt-buttons">
               {/* Tweak classNames to change classes */}
               <a 
