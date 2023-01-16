@@ -49,7 +49,7 @@ const Home = () => {
       setRetry(0);
     }
 
-    const finalInput = 'uyasophia, woman, beautiful, realistic, high detailed, uhd, photo, 8k, studio lighting, ' + input;
+    const finalInput = 'uyasophia woman, beautiful, realistic, high detailed, uhd, photo, 8k, studio lighting, ' + input;
 
     // Add the fetch request
     const response = await fetch('/api/generate', {

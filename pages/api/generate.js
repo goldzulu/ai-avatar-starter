@@ -10,8 +10,12 @@ const generateAction = async (req, res) => {
     // Append the model name and some initial prompt
     const input = JSON.parse(req.body).input;
 
+    // multiple models
+    // const model = 'uyasophia';
+    const model = 'uyasophiadl2';
+
     // Add fetch request to Hugging Face
-    const response = await fetch('https://api-inference.huggingface.co/models/goldzulu/uyasophia', 
+    const response = await fetch(`https://api-inference.huggingface.co/models/goldzulu/${model}`, 
     {
         headers: {
             'Content-Type': 'application/json',
